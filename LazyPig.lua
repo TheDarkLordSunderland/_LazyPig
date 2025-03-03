@@ -2369,8 +2369,8 @@ end
 
 
 function LazyPig_CheckSalvation()
-	if(LPCONFIG.SALVA == 1 or LPCONFIG.SALVA == 2 and (LazyPig_IsShieldEquipped() and LazyPig_PlayerClass("Warrior", "player") or LazyPig_IsBearForm() or (LazyPig_IsDreadnaughtEquipped() and LazyPig_PlayerClass("Warrior", "player"))) then
-		LazyPig_CancelSalvationBuff()
+	if((LPCONFIG.SALVA == 1) or ((LPCONFIG.SALVA == 2) and ((LazyPig_IsShieldEquipped() and LazyPig_PlayerClass("Warrior", "player")) or LazyPig_IsBearForm() or (LazyPig_IsDreadnaughtEquipped() and LazyPig_PlayerClass("Warrior", "player"))))) then
+		LazyPig_CancelSalvationBuff() 
 	end
 end
 
