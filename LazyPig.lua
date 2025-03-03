@@ -1001,7 +1001,7 @@ function LazyPig_AutoRoll(id)
 	end	
 	
 	if LPCONFIG.SAND then	
-		if string.find(name ,"Corrupted Sand") then
+		if string.find(name ,"Corrupted Sand") or string.find(name, "Arcane Essence") or string.find(name, "Corruptor's Scourgestone") or string.find(name, "Fashion Coin")then
 			cfg = LPCONFIG.SAND
 			RollOnLoot(id, LPCONFIG.SAND);
 		end
