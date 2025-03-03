@@ -2292,6 +2292,18 @@ function LazyPig_IsShieldEquipped()
 	return false
 end
 
+function LazyPig_IsDreadnaughtEquipped()
+	local slot = GetInventorySlotInfo("WristSlot")
+	local link = GetInventoryItemLink("player", slot)
+	if link  then
+		local found, _, id, name = string.find(link, "Dreadnaught Bracers")
+		if found and id then
+			return true
+		end
+	end
+	return false
+end
+
 function LazyPig_CancelShapeshiftBuff()
 	local i;
 	local max = GetNumShapeshiftForms();
@@ -2357,7 +2369,7 @@ end
 
 
 function LazyPig_CheckSalvation()
-	if(LPCONFIG.SALVA == 1 or LPCONFIG.SALVA == 2 and (LazyPig_IsShieldEquipped() and LazyPig_PlayerClass("Warrior", "player") or LazyPig_IsBearForm())) then
+	if(LPCONFIG.SALVA == 1 or LPCONFIG.SALVA == 2 and (LazyPig_IsShieldEquipped() and LazyPig_PlayerClass("Warrior", "player") or LazyPig_IsBearForm() or (LazyPig_IsDreadnaughtEquippedEquipped() and LazyPig_PlayerClass("Warrior", "player"))) then
 		LazyPig_CancelSalvationBuff()
 	end
 end
